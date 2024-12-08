@@ -467,7 +467,7 @@ async def transcribe(request: TranscriptionRequest):
         json_filename = f"{timeline}.json"
         json_filepath = os.path.join(request.output_dir, json_filename)
         try:
-            with open(json_filepath, 'w') as f:
+            with open(json_filepath, 'w', encoding="utf-8") as f:
                 json.dump(result, f, indent=4)
             print(f"Transcription saved to: {json_filepath}")
         except Exception as e:
